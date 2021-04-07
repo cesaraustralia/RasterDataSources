@@ -5,7 +5,8 @@ module RasterDataSources
     read(path, String)
 end RasterDataSources
 
-using Dates,
+using Base64,
+      Dates,
       GeoData,
       HTTP,
       Requires,
@@ -21,9 +22,11 @@ struct Weather <: RasterDataSet end
 struct LandCover <: RasterDataSet end
 struct HabitatHeterogeneity <: RasterDataSet end
 
-export WorldClim, CHELSA, EarthEnv, AWAP, ALWB
+export WorldClim, CHELSA, EarthEnv, AWAP, ALWB, SMAP
 
 export BioClim, Climate, Weather, LandCover, HabitatHeterogeneity
+
+export L4
 
 export Values, Deciles
 
@@ -42,6 +45,7 @@ include("earthenv/landcover.jl")
 include("earthenv/habitatheterogeneity.jl")
 include("awap/awap.jl")
 include("alwb/alwb.jl")
+include("smap/l4.jl")
 
 function __init__()
     @require GeoData="9b6fcbb8-86d6-11e9-1ce7-23a6bb139a78" begin
