@@ -1,5 +1,7 @@
+using RasterDataSources, URIs, Test, Dates
+using RasterDataSources: rastername, rasterpath, rasterurl
+
 @testset "CHELSEA BioClim" begin
-    using RasterDataSources: rasterurl
 
     @test rastername(CHELSA{BioClim}, 5) == "CHELSA_bio10_05.tif"
 
